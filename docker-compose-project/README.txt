@@ -1,7 +1,7 @@
 How to run the database containers:
 
 Open your local terminal and do the following:
-1. Go in the example directory.
+1. Go in the docker-compose-project directory.
 2. Run the command 'docker-compose -f docker-compose.yaml up'.
 3. Wait a few seconds and were done!
 
