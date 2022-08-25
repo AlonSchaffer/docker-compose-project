@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  db_ro:
+    container_name: db_ro_container
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+      - db:/var/lib/postgresql/ro_data
+
+  db_rw:
+    container_name: db_rw_container
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5431:5432'
+    volumes: 
+      - db:/var/lib/postgresql/rw_data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@test.com
+      PGADMIN_DEFAULT_PASSWORD: test12345
+    volumes:
+      - pgadmindata:/var/lib/pgadmin
+      - ./servers.json:/pgadmin4/servers.json
+
+volumes:
+  db:
+    driver: local
+  pgadmindata:
+    driver: local

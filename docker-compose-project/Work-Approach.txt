@@ -1,0 +1,25 @@
+My work approach:
+1. learn doecker:
+    - diffrances between container and image 
+    - how to deploy and remove containers
+    - creating basic images
+2. learn docker- compose
+    - capabilities
+    - configurations
+
+3. learn posgres image at docker - compose:
+    - know configurations and enviroment variables
+    - learn how to add database to instances
+    - learn how to change database to read only mode.
+
+4. learn pgadmin image at docker-compose:
+    - configurations
+    - enviroment variables 
+    - learn how to add pre configured connections
+
+output should be :
+3 containers:
+1. pgadmin container
+2. postgres container with two ro databases
+3. posgres container with rw database
+* connections in pgadmin for both containers

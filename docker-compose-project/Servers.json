@@ -1,0 +1,24 @@
+{
+    "Servers": {
+      "1": {
+        "Name": "db_ro_container",
+        "Group": "readonly-databases",
+        "Host": "db_ro",
+        "Port": 5432,
+        "MaintenanceDB": "postgres",
+        "Username": "postgres",
+        "PassFile": "/pgpass",
+        "SSLMode": "prefer"
+      },
+      "2":{
+        "Name": "db_rw_container",
+        "Group": "readwrite-databases",
+        "Host": "db_rw",
+        "Port": 5432,
+        "MaintenanceDB": "postgres",
+        "Username": "postgres",
+        "PassFile": "/pgpass",
+        "SSLMode": "prefer"
+      }
+    }
+  }
